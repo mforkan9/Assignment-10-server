@@ -2,10 +2,11 @@ const express = require('express')
 const app = express()
 var bodyParser = require('body-parser')
 var cors = require('cors')
+require('dotenv').config()
 const port = 5000
 const MongoClient = require('mongodb').MongoClient;
 const  ObjectId  = require('mongodb').ObjectID
-const uri = "mongodb+srv://freshValleyShop:4BtNAn8uChvN72LZ@cluster0.nj4m0.mongodb.net/freshValleyDB?retryWrites=true&w=majority";
+const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.nj4m0.mongodb.net/freshValleyDB?retryWrites=true&w=majority`;
 app.get('/', (req, res) => {
   res.send('Hello World!')
 })
